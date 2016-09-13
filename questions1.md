@@ -23,7 +23,7 @@ https://paper.dropbox.com/doc/Symfony-2-Fondamentaux-HTAADshbfYvTf8AgD9J1M
     > Ce fichier se trouve à `app/Resources/views/`. Ce template contient la structure html de base pour l'application et sera le parent pour tous les autres templates.
 
 7. A quoi fait référence le dossier `web/bundles/framework/` ?
-    > Ce dossier sert à stocker les assets (css, js, images, etc) de Symfony pour les rendre public.
+    > Ce dossier fais références aux assets (css, js, images, etc) de Symfony FrameworkBundle basé dans `vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/public` pour les rendre public.
 
 
 ##Racines de l’application
@@ -31,32 +31,13 @@ https://paper.dropbox.com/doc/Symfony-2-Fondamentaux-HTAADshbfYvTf8AgD9J1M
     > Les fichiers `web/app.php` et `web/app_dev.php`.
 
 2. Comment sont définis les environnements de Symfony ?
-    > Les environnements de Symfony sont défini par des fichiers spécifique à chacun dans le dossier `app/config/`.
+    > Dans les racines de l'application en 1er paramètre de AppKernel.
 
 3. Quels environnements sont prédéfinis sur le projet ?
     > dev, prod et test.
 
 4. Quelles url sont actuellement supportées par votre projet (en prod et en dév) ?
-    > En prod : 
-    ```
-    homepage                  :  /
-    ```
-    > En dev et prod:
-    ```
-    _wdt                      :  /_wdt/{token}
-    _profiler_home            :  /_profiler/
-    _profiler_search          :  /_profiler/search
-    _profiler_search_bar      :  /_profiler/search_bar
-    _profiler_purge           :  /_profiler/purge
-    _profiler_info            :  /_profiler/info/{about}
-    _profiler_phpinfo         :  /_profiler/phpinfo
-    _profiler_search_results  :  /_profiler/{token}/search/results
-    _profiler                 :  /_profiler/{token}
-    _profiler_router          :  /_profiler/{token}/router
-    _profiler_exception       :  /_profiler/{token}/exception
-    _profiler_exception_css   :  /_profiler/{token}/exception.css
-    _twig_error_test          :  /_error/{code}.{_format}
-    ```
+    > `php app/console router:debug --env="prod"` ou `php app/console router:debug --env="dev"`
 
 5. Comment régénérer le cache en prod ?
     > `php app/console cache:clear --env=prod`
