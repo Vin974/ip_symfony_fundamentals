@@ -9,9 +9,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProjectController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listAction()
     {
-        return $this->render('', array('name' => $name));
+        $projects = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Project')->findAll();
+
+        return $this->render('project/list.html.twig', [
+            'projects' => $projects,
+        ]);
     }
 
     /**

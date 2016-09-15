@@ -3,13 +3,7 @@
 {% block body %}
     <div class="grid-container">
         <h2>Projects</h2>
-        <div class="projects grid-block small-up-4">
-            {% for project in projects %}
-                <div class="card">
-                    <div class="card-section">{{ project.name }}</div>
-                </div>
-            {% endfor %}
-        </div>
+        {{ render(controller('AppBundle:Project:list')) }}
     </div>
 {% endblock %}
 
