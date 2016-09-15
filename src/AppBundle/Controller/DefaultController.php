@@ -13,9 +13,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $projects = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Project')->findAll();
+
         return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'projects' => $projects,
         ));
     }
 }
