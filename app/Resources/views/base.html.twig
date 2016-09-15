@@ -3,11 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('vendor/foundation-apps/dist/css/foundation-apps.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% include "partials/header.html.twig" %}
         {% block body %}{% endblock %}
+        {% include "partials/footer.html.twig" %}
+        <script src="{{ asset('vendor/foundation-apps/dist/js/foundation-apps.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
