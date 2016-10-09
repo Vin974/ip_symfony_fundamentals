@@ -9,11 +9,11 @@
 namespace AppBundle\DataFixtures\ORM;
 
 
-use AppBundle\Entity\Project;
+use AppBundle\Entity\Board;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadProjectData implements FixtureInterface
+class LoadBoardData implements FixtureInterface
 {
 
     /**
@@ -23,19 +23,19 @@ class LoadProjectData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $project = new Project();
-        $project
+        $board = new Board();
+        $board
             ->setName('Test')
             ->setDescription('Ceci est un test')
         ;
-        $manager->persist($project);
+        $manager->persist($board);
 
-        $project = new Project();
-        $project
+        $board = new Board();
+        $board
             ->setName('Symfony')
             ->setDescription('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequuntur doloremque excepturi ipsa magnam minus nulla, odio vel veniam voluptate. Ab amet asperiores doloremque id mollitia nesciunt quia quod repudiandae!')
         ;
-        $manager->persist($project);
+        $manager->persist($board);
 
         $manager->flush();
     }

@@ -1,0 +1,10 @@
+<div class="boards grid-block small-up-4">
+    {% for board in boards %}
+        <div class="card">
+            <div class="card-section">
+                <h4>{{ board.name }}</h4>
+                <p>{{ board.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>

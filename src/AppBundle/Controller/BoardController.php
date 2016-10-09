@@ -2,48 +2,48 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\ProjectType;
+use AppBundle\Form\BoardType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProjectController extends Controller
+class BoardController extends Controller
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listAction()
     {
-        $projects = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Project')->findAll();
+        $boards = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Board')->findAll();
 
-        return $this->render('project/list.html.twig', [
-            'projects' => $projects,
+        return $this->render('board/list.html.twig', [
+            'boards' => $boards,
         ]);
     }
 
     /**
-     * @Route("/projects/add", name="projects_add")
+     * @Route("/boards/add", name="boards_add")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(ProjectType::class);
+        $form = $this->createForm(BoardType::class);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $project = $form->getData();
+            $board = $form->getData();
 
             $manager = $this->get('doctrine.orm.entity_manager');
-            $manager->persist($project);
+            $manager->persist($board);
             $manager->flush();
 
             return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('project/add.html.twig', [
-            'project_form' => $form->createView(),
+        return $this->render('board/add.html.twig', [
+            'board_form' => $form->createView(),
         ]);
     }
 }

@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProjectType extends AbstractType
+class BoardType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -20,12 +20,12 @@ class ProjectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Project',
+            'data_class' => 'AppBundle\Entity\Board',
         ]);
     }
 
     public function getName()
     {
-        return 'app_bundle_project_type';
+        return 'board_add';
     }
 }
