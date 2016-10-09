@@ -2,8 +2,11 @@
     {% for board in boards %}
         <div class="card">
             <div class="card-section">
-                <h4>{{ board.name }}</h4>
+                <h4><a href="{{ path('boards_view', {'id': board.id}) }}">{{ board.name }}</a></h4>
                 <p>{{ board.description }}</p>
+            </div>
+            <div class="card-divider">
+                <a href="{{ path('boards_view', {'id': board.id}) }}" class="button">View</a>
             </div>
         </div>
     {% endfor %}

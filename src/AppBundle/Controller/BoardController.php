@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Board;
 use AppBundle\Form\BoardType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -44,6 +45,20 @@ class BoardController extends Controller
 
         return $this->render('board/add.html.twig', [
             'board_form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/boards/{id}", name="boards_view", requirements={"id": "\d+"})
+     *
+     * @param Board $board
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editAction(Board $board, Request $request)
+    {
+        return $this->render('board/view.html.twig', [
+            'board' => $board,
         ]);
     }
 }
