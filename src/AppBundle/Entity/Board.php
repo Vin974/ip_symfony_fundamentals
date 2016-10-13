@@ -2,12 +2,13 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Board
  *
- * @ORM\Table(name="board")
+ * @ORM\Table(name="kanban_board")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BoardRepository")
  */
 class Board
@@ -34,6 +35,13 @@ class Board
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Column", mappedBy="board", cascade={"persist", "remove"})
+     */
+    private $columns;
 
 
     /**
@@ -92,5 +100,47 @@ class Board
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->columns = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add column
+     *
+     * @param \AppBundle\Entity\Column $column
+     *
+     * @return Board
+     */
+    public function addColumn(\AppBundle\Entity\Column $column)
+    {
+        $this->columns[] = $column;
+        $column->setBoard($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove column
+     *
+     * @param \AppBundle\Entity\Column $column
+     */
+    public function removeColumn(\AppBundle\Entity\Column $column)
+    {
+        $this->columns->removeElement($column);
+    }
+
+    /**
+     * Get columns
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColumns()
+    {
+        return $this->columns;
     }
 }
