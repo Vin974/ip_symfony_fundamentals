@@ -1,4 +1,8 @@
-.boards {
+#boards {
     padding: 10px;
     margin: 10px;
+}
+
+#boards .board:hover {
+    opacity: .1;
 }

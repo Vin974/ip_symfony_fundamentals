@@ -1,13 +1,16 @@
-<div class="boards">
+<div id="boards" class="grid-block padding">
     {% for board in boards %}
-        <div class="card">
-            <div class="card-section">
-                <h4><a href="{{ path('boards_view', {'id': board.id}) }}">{{ board.name }}</a></h4>
-                <p>{{ board.description }}</p>
-            </div>
-            <div class="card-divider">
-                <a href="{{ path('boards_view', {'id': board.id}) }}" class="button">View</a>
-            </div>
+        <div class="grid-content small-12 medium-6 large-4">
+            <a href="{{ path('boards_view', {'id': board.id}) }}">
+                <div class="board card">
+                    <div class="card-divider">
+                        <strong>{{ board.name }}</strong>
+                    </div>
+                    <div class="card-section">
+                        <p>{{ board.description }}</p>
+                    </div>
+                </div>
+            </a>
         </div>
     {% endfor %}
 </div>

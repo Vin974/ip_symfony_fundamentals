@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Boards</h2>
-    {{ render(controller('AppBundle:Board:list')) }}
+    <div class="grid-block vertical padding">
+        <h2>Boards</h2>
+        {{ render(controller('AppBundle:Board:list')) }}
+    </div>
 {% endblock %}
 
 {% block stylesheets %}
