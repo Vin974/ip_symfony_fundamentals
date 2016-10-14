@@ -1,0 +1,13 @@
+.board_columns .board_column {
+    border-right: 3px dotted #aaaaaa;
+    min-width: 280px;
+    max-width: 280px;
+}
+
+.board_columns .board_column:last-child {
+    border-right: none;
+}
+
+.board_columns .board_column h5 {
+    border-bottom: 2px dotted #aaaaaa;
+}

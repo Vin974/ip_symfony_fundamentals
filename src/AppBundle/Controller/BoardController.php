@@ -55,7 +55,7 @@ class BoardController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Board $board, Request $request)
+    public function viewAction(Board $board, Request $request)
     {
         return $this->render('board/view.html.twig', [
             'board' => $board,
