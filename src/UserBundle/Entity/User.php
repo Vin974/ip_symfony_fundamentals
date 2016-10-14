@@ -39,7 +39,7 @@ class User extends BaseUser
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -47,7 +47,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFullname(): string
+    public function getFullname()
     {
         return $this->fullname;
     }
@@ -56,7 +56,7 @@ class User extends BaseUser
      * @param string $fullname
      * @return User
      */
-    public function setFullname(string $fullname): User
+    public function setFullname(string $fullname)
     {
         $this->fullname = $fullname;
         return $this;

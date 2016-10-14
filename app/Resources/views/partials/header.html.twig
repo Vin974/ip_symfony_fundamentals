@@ -1,12 +1,14 @@
-<class class="primary title-bar">
+<div class="primary title-bar">
     <span class="title left">
         <a href="{{ path('homepage') }}">
                 <i class="fa fa-trello"></i> Kanban
             </a>
     </span>
-    <span class="title right">
-        <a href="{{ path('boards_add') }}">
-            <i class="fa fa-plus-square"></i>
-        </a>
-    </span>
-</class>
+    {% if app.user %}
+        <span class="title right">
+            <a href="{{ path('boards_add') }}">
+                <i class="fa fa-plus-square"></i>
+            </a>
+        </span>
+    {% endif %}
+</div>
