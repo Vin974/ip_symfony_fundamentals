@@ -1,2 +1,6 @@
 @import "index.css";
 @import "board.css";
+
+.menu-bar i {
+    margin-right: 5px;
+}
