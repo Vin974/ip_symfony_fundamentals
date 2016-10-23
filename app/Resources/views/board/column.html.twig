@@ -1,3 +1,12 @@
 <div class="board_column grid-content">
     <h5 class="text-center">{{ column.name }}</h5>
+    {% for card in column.cards %}
+        <div class="grid-content">
+            <a href="#">
+                <div class="board card">
+                    <div class="card-divider">{{ card.text }}</div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
 </div>

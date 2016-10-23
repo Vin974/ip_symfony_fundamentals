@@ -8,6 +8,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Board;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +41,17 @@ class Column
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Board", inversedBy="columns")
      */
     private $board;
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Card", mappedBy="column", cascade={"persist", "remove"})
+     */
+    private $cards;
+
+    public function __construct()
+    {
+        $this->cards = new ArrayCollection;
+    }
 
     /**
      * Get id
@@ -77,11 +90,11 @@ class Column
     /**
      * Set board
      *
-     * @param \AppBundle\Entity\Board $board
+     * @param Board $board
      *
      * @return Column
      */
-    public function setBoard(\AppBundle\Entity\Board $board = null)
+    public function setBoard(Board $board = null)
     {
         $this->board = $board;
 
@@ -91,10 +104,41 @@ class Column
     /**
      * Get board
      *
-     * @return \AppBundle\Entity\Board
+     * @return Board
      */
     public function getBoard()
     {
         return $this->board;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCards()
+    {
+        return $this->cards;
+    }
+
+    /**
+     * @param Card $card
+     * @return $this
+     */
+    public function addCard(Card $card)
+    {
+        $this->cards->add($card);
+        $card->setColumn($this);
+
+        return $this;
+    }
+
+    /**
+     * @param Card $card
+     * @return $this
+     */
+    public function removeCard(Card $card)
+    {
+        $this->cards->remove($card);
+
+        return $this;
     }
 }
