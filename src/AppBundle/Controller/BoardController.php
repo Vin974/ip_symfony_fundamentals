@@ -3,7 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Board;
+use AppBundle\Entity\Column;
 use AppBundle\Form\BoardType;
+use AppBundle\Form\ColumnType;
+use AppBundle\Form\NewColumnType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,8 +60,15 @@ class BoardController extends Controller
      */
     public function viewAction(Board $board, Request $request)
     {
+        $column = (new Column)->setBoard($board);
+
+        $form = $this->createForm(NewColumnType::class, $column, [
+            'action' => $this->generateUrl('column_add'),
+        ]);
+
         return $this->render('board/view.html.twig', [
             'board' => $board,
+            'form_add_column' => $form->createView(),
         ]);
     }
 }

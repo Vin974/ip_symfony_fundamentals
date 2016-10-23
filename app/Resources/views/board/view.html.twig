@@ -4,12 +4,12 @@
     <div class="grid-block vertical padding">
         <h4>{{ board.name }}</h4>
         <p>{{ board.description }}</p>
-        <div class="board_columns grid-block">
+        <div class="board_columns grid-block nowrap">
             {% for column in board.columns %}
                 {% include 'board/column.html.twig' %}
             {% endfor %}
             <div class="board_column add_column text-center">
-                <a href="#" class="button">Add a column</a>
+                {{ form(form_add_column) }}
             </div>
         </div>
     </div>
