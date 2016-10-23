@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -8,6 +8,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class BoardType
+ * @package AppBundle\Form\Type
+ * @author Vincent DIJOUX <dijoux.vin@gmail.com>
+ */
 class BoardType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)

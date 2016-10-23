@@ -10,8 +10,8 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Column;
-use AppBundle\Form\ColumnType;
-use AppBundle\Form\NewColumnType;
+use AppBundle\Form\Type\ColumnType;
+use AppBundle\Form\Type\NewColumnType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

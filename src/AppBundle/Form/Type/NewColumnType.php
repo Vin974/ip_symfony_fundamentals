@@ -6,7 +6,7 @@
  * Time: 00:33
  */
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 
 use AppBundle\Form\DataTransformer\BoardTransformer;
@@ -17,6 +17,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class NewColumnType
+ * @package AppBundle\Form\Type
+ * @author Vincent DIJOUX <dijoux.vin@gmail.com>
+ */
 class NewColumnType extends AbstractType
 {
     /**

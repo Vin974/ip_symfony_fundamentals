@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 
 use AppBundle\Entity\Column;
@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class ColumnType
- * @package AppBundle\Form
+ * @package AppBundle\Form\Type
  * @author Vincent DIJOUX <dijoux.vin@gmail.com>
  */
 class ColumnType extends AbstractType

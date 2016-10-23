@@ -5,7 +5,7 @@ parameters:
 
 services:
     form.type.new_column:
-        class: AppBundle\Form\NewColumnType
+        class: AppBundle\Form\Type\NewColumnType
         arguments: ["@doctrine.orm.entity_manager"]
         tags:
             - { name: form.type }
