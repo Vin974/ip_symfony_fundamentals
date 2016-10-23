@@ -1,5 +1,12 @@
 <div class="board_column grid-content">
-    <h5 class="text-center">{{ column.name }}</h5>
+    <h5 class="text-center">
+        {{ column.name }}
+        <span class="column-actions">
+            <a href="{{ path('column_edit', {'id': column.id}) }}">
+                <i class="column-edit fa fa-pencil"></i>
+            </a>
+        </span>
+    </h5>
     {% for card in column.cards %}
         <div class="grid-content">
             <a href="#">

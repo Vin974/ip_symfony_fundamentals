@@ -10,4 +10,20 @@
 
 .board_columns .board_column h5 {
     border-bottom: 2px dotted #aaaaaa;
+    position: relative;
+}
+
+.board_columns .board_column h5 .column-actions {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.board_columns .board_column h5:hover .column-actions {
+    opacity: 1;
+}
+
+.board_columns .board_column h5 .column-actions .column-edit {
+    cursor: pointer;
 }

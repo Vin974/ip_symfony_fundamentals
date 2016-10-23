@@ -106,17 +106,17 @@ class Board
      */
     public function __construct()
     {
-        $this->columns = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->columns = new ArrayCollection();
     }
 
     /**
      * Add column
      *
-     * @param \AppBundle\Entity\Column $column
+     * @param Column $column
      *
      * @return Board
      */
-    public function addColumn(\AppBundle\Entity\Column $column)
+    public function addColumn(Column $column)
     {
         $this->columns[] = $column;
         $column->setBoard($this);
@@ -127,9 +127,9 @@ class Board
     /**
      * Remove column
      *
-     * @param \AppBundle\Entity\Column $column
+     * @param Column $column
      */
-    public function removeColumn(\AppBundle\Entity\Column $column)
+    public function removeColumn(Column $column)
     {
         $this->columns->removeElement($column);
     }
